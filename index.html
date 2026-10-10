@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday Master 🎉</title>
+  <title>Happy Birthday Vallari 🎉</title>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -139,36 +139,6 @@
 
     .glow-border-purple {
       box-shadow: 0 0 20px rgba(168, 85, 247, 0.4), inset 0 0 20px rgba(168, 85, 247, 0.05);
-    }
-
-    /* ── Countdown cards ── */
-    .countdown-card {
-      background: linear-gradient(135deg, rgba(0, 212, 255, 0.06), rgba(168, 85, 247, 0.06));
-      border: 1px solid rgba(0, 212, 255, 0.25);
-      box-shadow: 0 0 30px rgba(0, 212, 255, 0.15), 0 0 60px rgba(168, 85, 247, 0.1);
-      border-radius: 1rem;
-      text-align: center;
-      padding: 1.5rem 1rem;
-      min-width: 90px;
-    }
-
-    .countdown-num {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 900;
-      background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .countdown-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      color: rgba(255, 255, 255, 0.45);
-      text-transform: uppercase;
-      margin-top: 0.4rem;
     }
 
     /* ── Animated gradient BG ── */
@@ -385,25 +355,7 @@
       to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
     }
 
-    /* ── Social share ── */
-    .share-btn {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      transition: all 0.3s;
-      cursor: pointer;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    .share-btn:hover {
-      transform: translateY(-4px) scale(1.1);
-    }
-
-    /* ── Section fade-up (GSAP handles, but fallback) ── */
+    /* ── Section fade-up ── */
     .fade-up {
       opacity: 0;
       transform: translateY(40px);
@@ -413,12 +365,6 @@
     section {
       position: relative;
       z-index: 1;
-    }
-
-    /* ── Hidden elements ── */
-    .hidden-init {
-      opacity: 0;
-      visibility: hidden;
     }
 
     /* ── Navbar ── */
@@ -477,11 +423,265 @@
       animation: float 4s ease-in-out infinite;
     }
 
-    /* ── Progress bar fill (for letter section) ── */
+    /* ── Letter card text ── */
     .letter-card p {
       font-family: 'Syne', sans-serif;
       line-height: 1.9;
       color: rgba(226, 232, 240, 0.85);
+    }
+
+    /* ── Story Section ── */
+    .story-card {
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.04), rgba(168, 85, 247, 0.04));
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      border-radius: 1.5rem;
+      padding: 1.75rem 1.75rem 1.75rem 2rem;
+      position: relative;
+      transition: all 0.4s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .story-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 1.5rem;
+      bottom: 1.5rem;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--neon-blue), var(--neon-purple), var(--neon-pink));
+      border-radius: 3px;
+      box-shadow: 0 0 12px rgba(0, 212, 255, 0.6);
+    }
+
+    .story-card:hover {
+      border-color: rgba(0, 212, 255, 0.45);
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.12), 0 0 80px rgba(168, 85, 247, 0.08);
+      transform: translateX(4px);
+    }
+
+    .story-card .story-date {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-transform: uppercase;
+    }
+
+    .story-card .story-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: #fff;
+      margin: 0.4rem 0 0.75rem;
+      line-height: 1.3;
+    }
+
+    .story-card .story-body {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: rgba(226, 232, 240, 0.8);
+    }
+
+    .story-card .story-quote {
+      font-style: italic;
+      font-size: 0.9rem;
+      color: rgba(0, 212, 255, 0.7);
+      margin-top: 0.9rem;
+      padding-top: 0.9rem;
+      border-top: 1px dashed rgba(168, 85, 247, 0.25);
+    }
+
+    .story-card .story-highlight {
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(168, 85, 247, 0.2));
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+      margin-top: 1rem;
+      border-left: 3px solid var(--neon-pink);
+      font-weight: 600;
+      color: #fbcfe8;
+    }
+
+    /* Story intro card */
+    .story-intro {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.08), rgba(0, 212, 255, 0.08));
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 1.5rem;
+      padding: 2rem 2rem;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(168, 85, 247, 0.1);
+    }
+
+    .story-intro p {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: rgba(226, 232, 240, 0.85);
+    }
+
+    .story-intro .highlight-blue {
+      color: var(--neon-blue);
+      font-weight: 600;
+    }
+
+    .story-intro .highlight-purple {
+      color: var(--neon-purple);
+      font-weight: 600;
+    }
+
+    .story-intro .highlight-pink {
+      color: var(--neon-pink);
+      font-weight: 600;
+    }
+
+    /* Final note card */
+    .final-note-card {
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.06), rgba(168, 85, 247, 0.06), rgba(0, 212, 255, 0.06));
+      border: 1px solid rgba(236, 72, 153, 0.25);
+      border-radius: 1.5rem;
+      padding: 2rem 2rem;
+      box-shadow: 0 0 40px rgba(236, 72, 153, 0.08);
+    }
+
+    .final-note-card p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: rgba(226, 232, 240, 0.85);
+    }
+
+    .final-note-card .signature {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--neon-pink);
+      margin-top: 1.5rem;
+    }
+        /* ── Surprise Modal Promises ── */
+    .surprise-card {
+      max-height: 90vh;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(168, 85, 247, 0.5) transparent;
+    }
+
+    .surprise-card::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .surprise-card::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .surprise-card::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, var(--neon-blue), var(--neon-purple));
+      border-radius: 3px;
+    }
+
+    .promise-card {
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(168, 85, 247, 0.08));
+      border: 1px solid rgba(0, 212, 255, 0.25);
+      border-radius: 1rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: 0.9rem;
+      text-align: left;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .promise-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--neon-blue), var(--neon-purple));
+      box-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
+    }
+
+    .promise-card:hover {
+      border-color: rgba(0, 212, 255, 0.5);
+      box-shadow: 0 0 25px rgba(0, 212, 255, 0.15);
+      transform: translateX(3px);
+    }
+
+    .promise-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .promise-text {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: rgba(226, 232, 240, 0.9);
+      margin: 0;
+    }
+
+    .promise-highlight {
+      color: var(--neon-blue);
+      font-weight: 700;
+      text-shadow: 0 0 12px rgba(0, 212, 255, 0.5);
+    }
+
+    /* ── Special Highlight (Final Message) ── */
+    .special-highlight {
+      position: relative;
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(168, 85, 247, 0.15), rgba(0, 212, 255, 0.15));
+      border: 1.5px solid rgba(236, 72, 153, 0.45);
+      border-radius: 1.25rem;
+      padding: 1.5rem 1.25rem;
+      margin-top: 1rem;
+      text-align: center;
+      overflow: hidden;
+      animation: specialPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes specialPulse {
+      0%, 100% {
+        box-shadow: 0 0 20px rgba(236, 72, 153, 0.3), 0 0 40px rgba(168, 85, 247, 0.15);
+      }
+      50% {
+        box-shadow: 0 0 35px rgba(236, 72, 153, 0.6), 0 0 70px rgba(168, 85, 247, 0.3);
+      }
+    }
+
+    .special-highlight-glow {
+      position: absolute;
+      inset: -50%;
+      background: conic-gradient(from 0deg, transparent, rgba(0, 212, 255, 0.15), transparent, rgba(236, 72, 153, 0.15), transparent);
+      animation: spinGlow 6s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes spinGlow {
+      to { transform: rotate(360deg); }
+    }
+
+    .special-highlight-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .special-highlight-text {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.6;
+      background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink), var(--neon-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      letter-spacing: 0.02em;
     }
   </style>
 </head>
@@ -497,7 +697,7 @@
 
   <!-- NAVBAR -->
   <nav>
-    <span class="font-orbitron text-sm grad-text font-bold tracking-widest">BDay.11.06</span>
+    <span class="font-orbitron text-sm grad-text font-bold tracking-widest">BDay.11/10</span>
     <div class="flex items-center gap-3">
       <div class="music-btn" id="music-toggle" title="Toggle Music">
         <i class="fas fa-music"></i>
@@ -520,14 +720,14 @@
         class="inline-flex items-center gap-2 glass-card px-4 py-2 mb-8 text-xs font-mono text-purple-300 glow-border"
         id="hero-badge">
         <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
-        June 11 · A Day That Hits Different
+        A Day That Hits Different
       </div>
 
       <!-- Main heading -->
       <h1 class="font-orbitron font-black text-white mb-4 leading-none" style="font-size: clamp(2.5rem, 8vw, 7rem);"
         id="hero-title">
         Happy Birthday<br>
-        <span class="grad-text" id="hero-bro">Master🎉</span>
+        <span class="grad-text" id="hero-bro">Vallari🎉</span>
       </h1>
 
       <!-- Subtitle -->
@@ -554,7 +754,7 @@
     </div>
   </section>
 
-  <!-- SECTION 3 · MEMORY GALLERY -->
+  <!-- SECTION 2 · MEMORY GALLERY -->
   <section id="gallery" class="relative py-28 px-6 overflow-hidden">
 
     <!-- Background Blur -->
@@ -586,49 +786,49 @@
 
         <!-- Card 1 -->
         <div class="memory-card md:translate-y-12 h-[400px]">
-          <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&auto=format&fit=crop" alt="Cute moment">
+          <img src="vall-01.jpg" alt="Cute moment">
           <div class="memory-content">
-            <span>❤️Cute & My Favorite Photo</span>
+            <span>❤️ THE FIRST PIC <br> Cute & My Favorite Photo</span>
           </div>
         </div>
 
         <!-- Card 2 -->
         <div class="memory-card h-[400px]">
-          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&auto=format&fit=crop" alt="Ghuvad moment">
+          <img src="vall-02.jpg" alt="Favorite moment">
           <div class="memory-content">
-            <span>✨Ghuvad Favorite Moment With B2</span>
+            <span>✨ LINKEDIN PROFILE <br>Favorite Moment With You</span>
           </div>
         </div>
 
         <!-- Card 3 -->
         <div class="memory-card md:translate-y-20 h-[400px]">
-          <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&auto=format&fit=crop" alt="Endless fun">
+          <img src="vall-03.jpg" alt="Endless fun">
           <div class="memory-content">
-            <span>🎉Endless Fun</span>
+            <span>🎉 CHAND JESI SMILE <br>Endless Fun</span>
           </div>
         </div>
 
         <!-- Card 4 -->
         <div class="memory-card h-[400px]">
-          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&auto=format&fit=crop" alt="Selfie lover">
+          <img src="vall-04.jpg" alt="Selfie lover">
           <div class="memory-content">
-            <span>🔥 Selfie lover.</span>
+            <span>🔥 Selfie Lover</span>
           </div>
         </div>
 
         <!-- Card 5 -->
         <div class="memory-card md:-translate-y-8 h-[400px]">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&auto=format&fit=crop" alt="With mother">
+          <img src="vall-05.jpg" alt="With mother">
           <div class="memory-content">
-            <span>🌍 With Mother</span>
+            <span>🌍 Best Selfie</span>
           </div>
         </div>
 
         <!-- Card 6 -->
         <div class="memory-card h-[400px]">
-          <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=800&auto=format&fit=crop" alt="Surprise">
+          <img src="vall-06.jpg" alt="Surprise">
           <div class="memory-content">
-            <span>🎉Bttu gave the Ghuvad a surprise </span>
+            <span>🎉 A Little Surprise</span>
           </div>
         </div>
 
@@ -637,7 +837,7 @@
     </div>
   </section>
 
-  <!-- SECTION 4 · TIMELINE -->
+  <!-- SECTION 3 · TIMELINE (Simplified Friendship Timeline) -->
   <section id="timeline" class="py-24 px-6">
     <div class="max-w-3xl mx-auto">
       <div class="text-center mb-16 fade-up">
@@ -652,46 +852,67 @@
         <!-- Vertical line -->
         <div class="absolute left-6 top-0 bottom-0 timeline-connector" style="width:2px; margin-left:-1px;"></div>
 
-        <!-- Items -->
+        <!-- Item 1 -->
         <div class="timeline-item fade-up flex gap-6 pb-12">
           <div class="relative z-10 mt-1">
             <div class="timeline-dot"></div>
           </div>
           <div class="glass-card p-5 flex-1 glow-border">
-            <span class="text-xs font-mono text-blue-400 tracking-widest">FEB</span>
-            <h3 class="font-orbitron font-bold text-white mt-1 mb-2">SIR FIRST MEET 💫</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">That face-to-face moment when we first met turned an
-              ordinary day into the beginning of my favorite chapter.</p>
+            <span class="text-xs font-mono text-blue-400 tracking-widest">23 SEPTEMBER 2026</span>
+            <h3 class="font-orbitron font-bold text-white mt-1 mb-2">The First Hello 💫</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Every story has a beginning. Ours started on LinkedIn. A small attempt to start a conversation, without knowing when or how it would turn into something more interesting.</p>
           </div>
         </div>
 
+        <!-- Item 2 -->
         <div class="timeline-item fade-up flex gap-6 pb-12">
           <div class="relative z-10 mt-1">
             <div class="timeline-dot"></div>
           </div>
           <div class="glass-card p-5 flex-1 glow-border-purple">
-            <span class="text-xs font-mono text-purple-400 tracking-widest">APRIL</span>
-            <h3 class="font-orbitron font-bold text-white mt-1 mb-2">MA'AM FIRST MEET ✨</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">Sir gave me Ma'am's number. Ma'am was in tension because no
-              one was talking to her , I was told to bring lunch every day and to talk to Ma'am And I liked talking to
-              Ma'am and now I am enjoying talking to Ma'am and sharing everything, Thank you sir for making friendship with Madam...</p>
+            <span class="text-xs font-mono text-purple-400 tracking-widest">30 SEPTEMBER 2026</span>
+            <h3 class="font-orbitron font-bold text-white mt-1 mb-2">The Reply That Started It All 💌</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Seven days later, our conversation finally got its first reply. That simple response became the beginning of our actual conversations.</p>
           </div>
         </div>
 
+        <!-- Item 3 -->
+        <div class="timeline-item fade-up flex gap-6 pb-12">
+          <div class="relative z-10 mt-1">
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="glass-card p-5 flex-1 glow-border">
+            <span class="text-xs font-mono text-blue-400 tracking-widest">01 OCTOBER 2026</span>
+            <h3 class="font-orbitron font-bold text-white mt-1 mb-2">Getting to Know Each Other 😊</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">A little more talking, a little less stranger. We started learning small things about each other, discovering common interests, and finding reasons to keep the conversation going.</p>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
         <div class="timeline-item fade-up flex gap-6 pb-12">
           <div class="relative z-10 mt-1">
             <div class="timeline-dot"></div>
           </div>
           <div class="glass-card p-5 flex-1 glow-border-purple">
-            <span class="text-xs font-mono text-blue-400 tracking-widest">APRIL</span>
-            <h3 class="font-orbitron font-bold text-white mt-1 mb-2">Last Meet ✨</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
-              Shilpa Shivalik met for a few minutes in the afternoon, We both had lunch from your tiffin, talked, even
-              though we met for a few minutes, it was fun, Amazing
-              last meet thank you so much master ,I hope to see back soon...</p>
+            <span class="text-xs font-mono text-purple-400 tracking-widest">06 OCTOBER 2026</span>
+            <h3 class="font-orbitron font-bold text-white mt-1 mb-2">Conversations Got Longer ✨</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">From small talk to sharing little pieces of our day. You even shared a picture of yourself studying — a simple moment that made the conversation feel more personal.</p>
           </div>
         </div>
 
+        <!-- Item 5 -->
+        <div class="timeline-item fade-up flex gap-6 pb-12">
+          <div class="relative z-10 mt-1">
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="glass-card p-5 flex-1 glow-border">
+            <span class="text-xs font-mono text-blue-400 tracking-widest">08 OCTOBER 2026</span>
+            <h3 class="font-orbitron font-bold text-white mt-1 mb-2">From LinkedIn to Snapchat 👻💜</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">A new platform, a new little chapter. We exchanged our first pictures there. And well, I managed to find your Instagram on my own! 😂</p>
+          </div>
+        </div>
+
+        <!-- Item 6 (today) -->
         <div class="timeline-item fade-up flex gap-6">
           <div class="relative z-10 mt-1">
             <div class="timeline-dot"
@@ -701,9 +922,8 @@
           <div class="glass-card p-5 flex-1"
             style="border-color: rgba(236,72,153,0.3); box-shadow: 0 0 20px rgba(236,72,153,0.2);">
             <span class="text-xs font-mono text-pink-400 tracking-widest">TODAY</span>
-            <h3 class="font-orbitron font-bold text-white mt-1 mb-2">Happy Birthday Dhaval sir - Master 🎂</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">And the story continues... Here's to everything that's
-              coming next. The best chapters are still ahead.</p>
+            <h3 class="font-orbitron font-bold text-white mt-1 mb-2">Happy Birthday Vallari 🎂</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">And the story continues... Here's to everything that's coming next. The best chapters are still ahead.</p>
           </div>
         </div>
 
@@ -711,13 +931,13 @@
     </div>
   </section>
 
-  <!-- SECTION 5 · LETTER -->
+  <!-- SECTION 4 · LETTER -->
   <section id="letter" class="py-24 px-6">
     <div class="max-w-2xl mx-auto text-center">
       <div class="fade-up">
         <p class="text-xs font-mono text-blue-400 tracking-widest mb-3 uppercase">Straight from the Heart</p>
         <h2 class="font-orbitron font-black text-3xl sm:text-5xl text-white mb-12">
-          A Letter to <span class="grad-text">Dhaval Sir - My Master</span>
+          A Letter to <span class="grad-text">Vallari</span>
         </h2>
       </div>
 
@@ -729,10 +949,10 @@
         </div>
 
         <div class="relative z-10">
-          <p class="font-mono text-blue-300 text-sm mb-6">Dear Master,</p>
+          <p class="font-mono text-blue-300 text-sm mb-6">Dear Vallari,</p>
           <p id="typing-text" class="font-syne text-base sm:text-lg leading-relaxed text-slate-300 min-h-[6rem]"></p>
           <div id="letter-rest" class="mt-6 space-y-4 hidden">
-            <p class="letter-card font-syne text-base leading-relaxed">Master, you're one of those people.<br>You have a
+            <p class="letter-card font-syne text-base leading-relaxed">Vallari, you're one of those people.<br>You have a
               way of making others feel comfortable, valued, and
               <span class="neon-blue">cared for.</span> Your kindness isn't something you show
               off—it's simply who you are, and that's what makes it so genuine.
@@ -742,95 +962,206 @@
               <span class="neon-purple">"Enjoy every second—you deserve"</span> it. ❤️
             </p>
             <p class="font-mono text-pink-300 text-sm mt-8">Here's to you, and everything you deserve. 🥂<br><br>— Your
-              Darshana</p>
+              UI/UX buddy ✨ DHAVAL RATHOD</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 6 · INTERACTIVE FUN -->
-  <section id="fun" class="py-24 px-6">
-    <div class="max-w-4xl mx-auto text-center">
-      <div class="fade-up">
-        <p class="text-xs font-mono text-purple-400 tracking-widest mb-3 uppercase">Vibe Check</p>
+  <!-- SECTION 5 · OUR STORY SO FAR (NEW SECTION) -->
+  <section id="story" class="py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+
+      <!-- Section Heading -->
+      <div class="text-center mb-16 fade-up">
+        <p class="text-xs font-mono text-purple-400 tracking-widest mb-3 uppercase">From LinkedIn to Little Memories</p>
         <h2 class="font-orbitron font-black text-3xl sm:text-5xl text-white mb-4">
-          Let's <span class="grad-text">Party</span> 🎊
+          Our Story <span class="grad-text">So Far 💜</span>
         </h2>
-        <p class="text-slate-400 mb-12">Hit the buttons. Make noise. Be chaotic.</p>
+        <p class="text-slate-400 max-w-2xl mx-auto text-base leading-relaxed">
+          Some connections begin with a simple message, but slowly become a collection of conversations, smiles, random pictures, little jokes, and moments that make an ordinary day feel a little more special.
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 fade-up">
+      <!-- Story Intro Card -->
+      <div class="story-intro fade-up mb-12">
+        <p>
+          Our story started on <span class="highlight-blue">LinkedIn</span>. Neither of us knew how many conversations, laughs, and little memories would follow that first message. And here we are, collecting our own little moments, one day at a time. <span class="highlight-purple">✨</span>
+        </p>
+      </div>
 
-        <!-- Confetti -->
-        <div class="glass-card p-8 glow-border hover:scale-105 transition-all duration-300 cursor-pointer"
-          onclick="launchConfetti()">
-          <div class="text-5xl mb-4">🎉</div>
-          <h3 class="font-orbitron font-bold text-white mb-2">Confetti Bomb</h3>
-          <p class="text-slate-400 text-sm">Click to unleash the celebration</p>
-          <button class="confetti-btn mt-4 w-full">BOOM!</button>
+      <!-- Story Timeline Cards -->
+      <div class="flex flex-col gap-6">
+
+        <!-- 23 Sept -->
+        <div class="story-card fade-up">
+          <span class="story-date">23 September 2026</span>
+          <h3 class="story-title">The First Hello</h3>
+          <p class="story-body">
+            Every story has a beginning. Ours started on LinkedIn. On 23 September, I sent you my first message. It was just a small attempt to start a conversation, without knowing when or how it would turn into something more interesting.
+          </p>
+          <p class="story-body" style="margin-top:0.6rem;">
+            Sometimes, the smallest beginnings lead to the most unexpected connections. This was our first little step.
+          </p>
+          <p class="story-quote">One message. A new beginning. A story waiting to unfold.</p>
         </div>
 
-        <!-- Floating emojis -->
-        <div class="glass-card p-8 glow-border-purple hover:scale-105 transition-all duration-300 cursor-pointer"
-          onclick="spawnEmojis()">
-          <div class="text-5xl mb-4">🚀</div>
-          <h3 class="font-orbitron font-bold text-white mb-2">Emoji Rain</h3>
-          <p class="text-slate-400 text-sm">Launch the good vibes into orbit</p>
-          <button class="confetti-btn mt-4 w-full"
-            style="background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));">GO!</button>
+        <!-- 30 Sept -->
+        <div class="story-card fade-up">
+          <span class="story-date">30 September 2026</span>
+          <h3 class="story-title">The Reply That Started It All 💌</h3>
+          <p class="story-body">
+            Seven days later, our conversation finally got its first reply. Your reply arrived on 30 September, and that simple response became the beginning of our actual conversations.
+          </p>
+          <p class="story-body" style="margin-top:0.6rem;">
+            It's funny how something as small as a reply can open the door to getting to know someone new. Maybe it was just another LinkedIn message for you that day, but it became the starting point of the conversations we have today.
+          </p>
+          <p class="story-quote">Sometimes, a simple reply is all a new connection needs.</p>
         </div>
 
-        <!-- Surprise -->
-        <div class="glass-card p-8 glow-border hover:scale-105 transition-all duration-300 cursor-pointer"
-          onclick="triggerSurprise()">
-          <div class="text-5xl mb-4">🎁</div>
-          <h3 class="font-orbitron font-bold text-white mb-2">Surprise Drop</h3>
-          <p class="text-slate-400 text-sm">Something special waits inside</p>
-          <button class="confetti-btn mt-4 w-full"
-            style="background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));">OPEN!</button>
+        <!-- 01 Oct -->
+        <div class="story-card fade-up">
+          <span class="story-date">01 October 2026</span>
+          <h3 class="story-title">Getting to Know Each Other 😊</h3>
+          <p class="story-body">
+            A little more talking, a little less stranger. On 1 October, we had some conversations and started getting to know each other a little better.
+          </p>
+          <p class="story-body" style="margin-top:0.6rem;">
+            We were still at the beginning, learning small things about each other, discovering common interests, and finding reasons to keep the conversation going. Every conversation added another small piece to the picture of who we are.
+          </p>
+          <p class="story-quote">Two people, a few conversations, and a friendship beginning to take shape.</p>
         </div>
 
-        <!-- Easter egg hint -->
-        <div class="glass-card p-8 glow-border-purple hover:scale-105 transition-all duration-300 cursor-pointer"
-          id="secret-btn" onclick="handleEasterEgg()">
-          <div class="text-5xl mb-4">🔐</div>
-          <h3 class="font-orbitron font-bold text-white mb-2">Secret Code</h3>
-          <p class="text-slate-400 text-sm">Click 5 times <br>Keep clicking—there’s more than meets the eye.</p>
-          <div class="flex gap-2 mt-4 justify-center" id="egg-dots">
-            <div class="w-3 h-3 rounded-full bg-slate-600" id="dot-1"></div>
-            <div class="w-3 h-3 rounded-full bg-slate-600" id="dot-2"></div>
-            <div class="w-3 h-3 rounded-full bg-slate-600" id="dot-3"></div>
-            <div class="w-3 h-3 rounded-full bg-slate-600" id="dot-4"></div>
-            <div class="w-3 h-3 rounded-full bg-slate-600" id="dot-5"></div>
+        <!-- 02 Oct -->
+        <div class="story-card fade-up">
+          <span class="story-date">02 October 2026</span>
+          <h3 class="story-title">A Little Chat, A Little Distance 🌿</h3>
+          <p class="story-body">
+            Even a short conversation can keep a connection going. I was at my village that day, so we didn't get to talk much. But not every day needs a long conversation to become part of a story.
+          </p>
+          <p class="story-body" style="margin-top:0.6rem;">
+            Some days are busy, some days are quiet, and some days leave us looking forward to the next conversation.
+          </p>
+          <p class="story-quote">Not every memory is about how long we talked; sometimes, it's simply about staying connected.</p>
+        </div>
+
+        <!-- 06 Oct -->
+        <div class="story-card fade-up">
+          <span class="story-date">06 October 2026</span>
+          <h3 class="story-title">The Day Conversations Got Longer ✨</h3>
+          <p class="story-body">
+            From small talk to sharing little pieces of our day. This was one of those days when we talked a lot more.
+          </p>
+          <p class="story-body" style="margin-top:0.6rem;">
+            You even shared a picture of yourself studying, giving me a little glimpse of what you were doing. It was a simple moment, but those everyday details are often what make conversations feel more personal. We started sharing more than just words — little glimpses of our routines, our interests, and our everyday lives.
+          </p>
+          <p class="story-quote">The best conversations are often made of the smallest details.</p>
+        </div>
+
+        <!-- 07 Oct -->
+        <div class="story-card fade-up">
+          <span class="story-date">07 October 2026</span>
+          <h3 class="story-title">Little Glimpses of Everyday Life 🥤</h3>
+          <p class="story-body">
+            A morning shake, a picture, and another little memory. You shared a picture of your morning shake with me. It was such an ordinary part of your day, yet it became another little detail I got to know about you.
+          </p>
+          <p class="story-body" style="margin-top:0.6rem;">
+            We also shared a little more about our surroundings and college life. I think that's one of the nice things about getting to know someone: gradually, even ordinary moments become interesting because you're sharing them with someone new.
+          </p>
+          <p class="story-quote">It's the little things that make conversations feel real.</p>
+        </div>
+
+        <!-- 08 Oct -->
+        <div class="story-card fade-up">
+          <span class="story-date">08 October 2026</span>
+          <h3 class="story-title">From LinkedIn to Snapchat 👻💜</h3>
+          <p class="story-body">
+            A new platform, a new little chapter. On 8 October, you shared your Snapchat with me, and we exchanged our first pictures there.
+          </p>
+          <p class="story-body" style="margin-top:0.6rem;">
+            It felt like another small step in getting to know each other beyond our LinkedIn conversations. We were no longer just exchanging messages about professional interests; we were also sharing little moments from our everyday lives. And well, I have to admit one thing — I managed to find your Instagram on my own! 😂
+          </p>
+          <p class="story-quote">New platform unlocked. More memories waiting to happen.</p>
+        </div>
+
+        <!-- 09 Oct -->
+        <div class="story-card fade-up">
+          <span class="story-date">09 October 2026</span>
+          <h3 class="story-title">Fifteen Questions and Countless Conversations 💜</h3>
+          <p class="story-body">
+            The day I decided to learn a little more about you. On 9 October, I asked you fifteen questions, wanting to know more about your favourite things, your personality, your dreams, and the little things that make you happy.
+          </p>
+          <p class="story-body" style="margin-top:0.6rem;">
+            From momos and dark chocolate waffles to horror movies, night-owl habits, cooking, and your dream BMW project — I got to discover so many little details about you.
+          </p>
+
+          <div class="story-highlight">
+            But one answer made me smile a little more than the others.<br>
+            When I asked what instantly makes you happy, you answered:<br>
+            <span style="font-size:1.1rem; color:#f9a8d4;">“Now Your Notification 🤭😸”</span>
           </div>
+
+          <p class="story-body" style="margin-top:0.9rem;">
+            That answer was definitely one of the cutest little moments in our conversations. And then there were your creative short names, your playful side, and the way our conversations continued late into the night. You also shared pictures of yourself and a picture with your mom. Those little glimpses of your life made the day feel even more personal.
+          </p>
+          <p class="story-quote">Fifteen questions, a lot of laughter, conversations that lasted late into the night, and many little things to remember.</p>
         </div>
 
       </div>
+
+      <!-- Final Note Before Next Chapter -->
+      <div class="final-note-card fade-up mt-12">
+        <h3 class="font-orbitron font-bold text-xl text-white mb-4">A Little Note Before the Next Chapter 💌</h3>
+        <p>
+          Looking back, our story is still very new. We haven't known each other for very long, and there are still so many things left to discover. But from that first LinkedIn message to our late-night conversations, from random pictures to funny little nicknames, these first few days have already given us some lovely memories.
+        </p>
+        <p style="margin-top:1rem;">
+          And I think that's the beautiful part of a new friendship: there's no need to rush it. We can keep learning about each other, sharing random stories, laughing at silly things, and supporting each other's dreams along the way.
+        </p>
+        <p style="margin-top:1rem;">
+          Also, I have to give you credit for one thing — you're genuinely a master at creating short names! 😂<br>
+          <span style="color:#a78bfa; font-weight:600;">TL — Talented Person. EP — Experienced Person.</span><br>
+          Let's see what other names you'll come up with next. 😄
+        </p>
+        <p style="margin-top:1rem;">
+          And Vallari, as you move towards your dream of becoming a UI/UX Designer, I hope I can help you learn, grow, and believe in your ideas a little more.
+        </p>
+        <p style="margin-top:1rem;">
+          This is only the beginning of our story. There are more conversations to have, more things to learn about each other, and hopefully, many more memories to make.
+        </p>
+        <p style="margin-top:1.5rem; font-size:1.15rem; font-weight:700; color:#f9a8d4;">
+          Happy Birthday, Vallari! 💜
+        </p>
+        <p style="margin-top:0.6rem;">
+          May this new year of your life bring you happiness, confidence, beautiful opportunities, and countless reasons to smile.
+        </p>
+        <p class="signature">Here's to new beginnings, unexpected friendships, and all the little memories still waiting to be made.<br>— From your UI/UX buddy ✨</p>
+      </div>
+
     </div>
   </section>
 
-  <!-- SECTION 7 · FINAL CELEBRATION -->
+  <!-- SECTION 6 · FINAL CELEBRATION -->
   <section id="final" class="py-32 px-6 relative overflow-hidden">
     <canvas id="fireworks-canvas" class="absolute inset-0 pointer-events-none"></canvas>
 
     <div class="max-w-4xl mx-auto text-center relative z-10">
 
       <div class="fade-up">
-        <p class="text-xs font-mono text-blue-400 tracking-widest mb-6 uppercase">Happy Birthday Master </p>
+        <p class="text-xs font-mono text-blue-400 tracking-widest mb-6 uppercase">Happy Birthday Vallari</p>
 
         <h2 class="font-orbitron font-black text-white leading-none mb-4" style="font-size: clamp(3rem, 10vw, 9rem);">
-          <span class="grad-text float" style="display:block;">June</span>
-          <span class="text-white">11</span>
+          <span class="grad-text float" style="display:block;">Vallari</span>
+          <span class="text-white">Thaker</span>
         </h2>
 
         <p class="font-orbitron font-bold text-2xl sm:text-4xl mt-6 mb-4 pulse-glow" style="color: var(--neon-pink);">
-          Happy Birthday, Dhaval Sir ❤️
+          Happy Birthday, Vallari ❤️
         </p>
 
         <p class="text-slate-400 text-lg max-w-xl mx-auto mb-12 font-syne leading-relaxed">
-          May this year be bigger, louder, wilder, and better than anything that came before. You deserve every single
-          good thing.
+          May this year be bigger, louder, wilder, and better than anything that came before. You deserve every single good thing.
         </p>
       </div>
 
@@ -842,32 +1173,62 @@
       </div>
 
       <!-- Footer -->
-      <p class="mt-16 text-slate-600 text-xs font-mono tracking-widest uppercase"> made with love by Darshana</p>
+      <p class="mt-16 text-slate-600 text-xs font-mono tracking-widest uppercase">Made with love by your UI/UX buddy ✨</p>
     </div>
   </section>
 
   <!-- SURPRISE MODAL -->
-  <div id="surprise-modal">
-    <div class="glass-card max-w-md w-full mx-4 p-8 text-center relative"
-      style="border-color: rgba(0,212,255,0.4); box-shadow: 0 0 60px rgba(0,212,255,0.3);">
-      <button class="absolute top-4 right-4 text-slate-500 hover:text-white transition-colors"
-        onclick="closeSurprise()">
-        <i class="fas fa-times"></i>
-      </button>
-      <div class="text-6xl mb-4">🎂</div>
-      <h3 class="font-orbitron font-black text-2xl grad-text mb-3">Surprise Unlocked!</h3>
-      <p class="font-syne text-slate-300 leading-relaxed mb-6">Some of my happiest moments have one thing in common—you
-        were there. Thanks for being more than a friend and becoming a part of my favorite memories. Happy Birthday,
-        Dhaval Sir! ❤️🥳</p>
-      <button class="confetti-btn w-full" onclick="closeSurprise(); launchConfetti();">Close & Celebrate!</button>
+  <!-- SURPRISE MODAL -->
+<div id="surprise-modal">
+  <div class="glass-card surprise-card max-w-lg w-full mx-4 p-8 text-center relative"
+    style="border-color: rgba(0,212,255,0.4); box-shadow: 0 0 60px rgba(0,212,255,0.3);">
+    <button class="absolute top-4 right-4 text-slate-500 hover:text-white transition-colors"
+      onclick="closeSurprise()">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <div class="text-6xl mb-4">🎂</div>
+    <h3 class="font-orbitron font-black text-2xl grad-text mb-5">Surprise Unlocked!</h3>
+
+    <!-- Promise 1 -->
+    <div class="promise-card">
+      <div class="promise-icon">🍽️🎬</div>
+      <p class="promise-text">
+        I promise you — <span class="promise-highlight">before Diwali</span>, we'll definitely go out
+        for <span class="promise-highlight">dosa</span> and then watch a <span class="promise-highlight">movie</span> together.
+      </p>
     </div>
+
+    <!-- Promise 2 -->
+    <div class="promise-card">
+      <div class="promise-icon">🤝💜</div>
+      <p class="promise-text">
+        And one more promise — <span class="promise-highlight">we'll always be best friends</span>, no matter what.
+        <br>
+        <span class="promise-highlight" style="color: rgb(255, 0, 255);"> 8200281654  </span> That's My Number U can save it and msg me anytimme
+      </p>
+    </div>
+
+    <!-- Final Highlight -->
+    <div class="special-highlight">
+      <div class="special-highlight-glow"></div>
+      <div class="special-highlight-icon">✨</div>
+      <p class="special-highlight-text">
+        2026 nu best divas tamara contact ma aavyo ae che
+      </p>
+    </div>
+
+    <button class="confetti-btn w-full mt-6" onclick="closeSurprise(); launchConfetti();">
+      Close & Celebrate! 🎉
+    </button>
   </div>
+</div>
 
   <!-- EASTER EGG -->
   <div id="easter-egg">
     <button class="absolute top-3 right-4 text-slate-500 hover:text-white text-lg" onclick="closeEgg()">×</button>
     <div class="text-5xl mb-3">🥳</div>
-    <h3 class="font-orbitron font-bold text-xl grad-text mb-2">Dear Best Friend,</h3>
+    <h3 class="font-orbitron font-bold text-xl grad-text mb-2">Dear Vallari,</h3>
     <p class="font-mono text-slate-300 text-sm max-w-xs">You're the person I call when life is amazing, terrible,
       confusing, or just plain boring. Thanks for always being there. <br> Happy Birthday to the one friend I'd choose
       again and again. 💙</p>
@@ -1082,32 +1443,6 @@
       );
     });
 
-    // Stagger countdown cards
-    gsap.fromTo('.countdown-card',
-      { opacity: 0, scale: 0.7, rotateX: 30 },
-      {
-        opacity: 1, scale: 1, rotateX: 0,
-        duration: 0.6,
-        stagger: 0.15,
-        ease: 'back.out(1.7)',
-        scrollTrigger: { trigger: '#countdown', start: 'top 75%' }
-      }
-    );
-
-    // Gallery parallax
-    document.querySelectorAll('.gallery-item').forEach((item, i) => {
-      gsap.fromTo(item,
-        { opacity: 0, y: 60 + i * 10 },
-        {
-          opacity: 1, y: 0,
-          duration: 0.7,
-          delay: i * 0.08,
-          ease: 'power2.out',
-          scrollTrigger: { trigger: item, start: 'top 90%' }
-        }
-      );
-    });
-
     // Timeline items
     document.querySelectorAll('.timeline-item').forEach((item, i) => {
       gsap.fromTo(item,
@@ -1118,6 +1453,23 @@
           delay: 0,
           ease: 'power3.out',
           scrollTrigger: { trigger: item, start: 'top 85%' }
+        }
+      );
+    });
+
+    // Story cards animation
+    document.querySelectorAll('.story-card').forEach((card, i) => {
+      gsap.fromTo(card,
+        { opacity: 0, y: 50, x: -20 },
+        {
+          opacity: 1, y: 0, x: 0,
+          duration: 0.7,
+          delay: (i % 2) * 0.08,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 88%'
+          }
         }
       );
     });
@@ -1220,7 +1572,6 @@
       if (eggClicks >= 5) {
         eggClicks = 0;
         showEasterEgg();
-        // reset dots
         for (let i = 1; i <= 5; i++) {
           setTimeout(() => {
             const d = document.getElementById(`dot-${i}`);
@@ -1245,7 +1596,7 @@
 
     // MUSIC TOGGLE (uses audio file)
     let musicPlaying = false;
-    let birthdayAudio = new Audio("bestu.mp3"); // path to your song
+    let birthdayAudio = new Audio("Vall-song.mp3");
     birthdayAudio.loop = true;
     birthdayAudio.volume = 0.7;
 
@@ -1319,7 +1670,6 @@
       resize(); draw();
       window.addEventListener('resize', resize);
 
-      // Auto-trigger on scroll into view
       ScrollTrigger.create({
         trigger: '#final',
         start: 'top 70%',
@@ -1350,26 +1700,6 @@
       spawnEmojis();
       if (window.triggerFireworks) window.triggerFireworks();
       setTimeout(() => launchConfetti(), 800);
-    }
-
-    // SOCIAL SHARE
-    function shareTo(platform) {
-      const url = encodeURIComponent(window.location.href);
-      const text = encodeURIComponent("🎉 Happy Birthday Bro! Check this out!");
-      const links = {
-        twitter: `https://twitter.com/intent/tweet?text=${text}&url=${url}`,
-        whatsapp: `https://wa.me/?text=${text}%20${url}`,
-        linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
-      };
-      if (platform === 'copy') {
-        navigator.clipboard.writeText(window.location.href).then(() => {
-          const toast = document.getElementById('copy-toast');
-          gsap.to(toast, { opacity: 1, duration: 0.3 });
-          setTimeout(() => gsap.to(toast, { opacity: 0, duration: 0.3 }), 2500);
-        });
-        return;
-      }
-      window.open(links[platform], '_blank');
     }
 
     // PARALLAX on scroll
